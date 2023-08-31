@@ -10,12 +10,22 @@ export class AlljobsListComponent implements OnInit {
 
   jobs: any[] = [];
 
+  currentPage = 1;
+  totalPages = 1;
+  totalItems = 0;
+  itemsPerPage = 5;
   selectedJob: any;
-
+  searchQuery: string = '';
   constructor(private jobService: JobService) { }
 
   ngOnInit() {
-    this.jobService.getJobs().subscribe((jobs: any[]) => {
+    this.getJobs();
+    
+  }
+
+  getJobs(){
+    this.jobService.getJobs(this.currentPage, this.itemsPerPage,this.searchQuery
+      ).subscribe((jobs: any[]) => {
       this.jobs = jobs;
       console.log(this.jobs);
       this.selectedJob = this.jobs[0];
@@ -25,6 +35,15 @@ export class AlljobsListComponent implements OnInit {
   viewJobDetail(job: any) {
     this.selectedJob = job;
   }
+
+  
+  changePage(pageNumber: number) {
+    if (pageNumber >= 1 && pageNumber <= this.totalPages) {
+      this.currentPage = pageNumber;
+      this.getJobs();
+    }
+  }
+
 
 
 

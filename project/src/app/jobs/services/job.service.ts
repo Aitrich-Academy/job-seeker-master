@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { forkJoin, mergeMap } from 'rxjs';
 import { environment } from 'src/environments/environments';
@@ -10,8 +10,16 @@ export class JobService {
 
   constructor(private http:HttpClient) { }
 
-  getJobs(){
-    return this.http.get<any[]>(environment.baseurl +'/jobs')
+  getJobs(page: number, limit: number, query?: string){
+    let params = new HttpParams()
+    .set('page', page.toString())
+    .set('limit', limit.toString());
+
+     // If a query is provided, add it to the parameters
+     if (query) {
+      params = params.set('search', query);
+    }
+    return this.http.get<any[]>(environment.baseurl +'/jobseeker/jobs',{params})
   }
 
   getAppliedJobs() {

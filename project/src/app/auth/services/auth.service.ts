@@ -25,6 +25,8 @@ export class AuthService {
 
     return this.http.post(environment.baseurl + '/users/login/', user)
   }
-
+  getToken(): any {
+    return localStorage.getItem('accessToken') // Return an empty string if the token is null or undefined
+  }
 
 }
