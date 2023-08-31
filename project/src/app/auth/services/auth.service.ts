@@ -15,11 +15,15 @@ export class AuthService {
   }
 
   signUp(user: any) {
-    return this.http.post(environment.baseurl + '/register', user)
+    return this.http.post(environment.baseurl + '/jobseeker/register', user)
   }
 
   getUserById(id: string) {
     return this.http.get<any[]>(environment.baseurl + '/users/'+id)
+  }
+  signIn(user:UserLogin){
+
+    return this.http.post(environment.baseurl + '/users/login/', user)
   }
 
 

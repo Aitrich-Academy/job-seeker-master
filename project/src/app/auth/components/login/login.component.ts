@@ -13,6 +13,7 @@ export class LoginComponent {
   backgroundImageUrl = '../../../../../assets/images/LoginPageImg.png';
 
   users: any[] = [];
+  signInUser!: UserLogin;
 
   constructor(
     private authService: AuthService, 
@@ -31,14 +32,16 @@ export class LoginComponent {
 
   login(loginForm: NgForm) {
     console.log(loginForm.value);
-    this.users.filter((user: any) => {
-      if (loginForm.value.username == user.email && loginForm.value.password == user.password) {
-        sessionStorage.setItem('user', JSON.stringify(user))
-        this.router.navigate(['jobseeker-home/findAllJobs'])
-      }
+    // this.signInUser.username=loginForm.value.username;
+    // this.signInUser.password=loginForm.value.password;
+    this.authService.signIn(loginForm.value).subscribe((response)=>{
+    console.log(response);
+    this.router.navigate(['jobseeker-home/findAllJobs']);
+
     })
-  }
 
+    }
 
-
-}
+    }
+  
+ 
