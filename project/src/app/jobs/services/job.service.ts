@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { forkJoin, mergeMap } from 'rxjs';
 import { environment } from 'src/environments/environments';
+import { job } from '../models/job';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class JobService {
      if (query) {
       params = params.set('search', query);
     }
-    return this.http.get<any[]>(environment.baseurl +'/jobseeker/jobs',{params})
+    return this.http.get(environment.baseurl +'/jobseeker/jobs',{params})
   }
 
   getAppliedJobs() {

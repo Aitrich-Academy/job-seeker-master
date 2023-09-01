@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JobService } from '../../services/job.service';
+import { job } from '../../models/job';
 
 @Component({
   selector: 'app-alljobs-list',
@@ -20,14 +21,14 @@ export class AlljobsListComponent implements OnInit {
 
   ngOnInit() {
     this.getJobs();
-    
-  }
+    }
 
   getJobs(){
     this.jobService.getJobs(this.currentPage, this.itemsPerPage,this.searchQuery
-      ).subscribe((jobs: any[]) => {
-      this.jobs = jobs;
-      console.log(this.jobs);
+      ).subscribe((jobs) => {
+      // this.jobs = jobs;
+      console.log(jobs);
+      console.log("haiiii" +job);
       this.selectedJob = this.jobs[0];
     })
   }
