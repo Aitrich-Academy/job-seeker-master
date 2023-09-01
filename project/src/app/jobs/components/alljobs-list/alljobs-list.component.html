@@ -8,11 +8,11 @@
 
           <div class="card-body">
             <div class="d-flex">
-              <img src="../assets/images/Rectangle 14.png" alt="Card image" width="50" height="50">
+              <!-- <img src="../assets/images/Rectangle 14.png" alt="Card image" width="50" height="50"> -->
               <div class="ms-4">
                 <h5 class="card-title mb-1 pl-3">{{job.title}}</h5>
-                <!-- <p class="card-text mb-0 pl-3"><span class="text-primary">{{job.companyName}}</span><span
-                    class="px-2">&bull;</span><span>{{job.location}}</span></p> -->
+                <p class="card-text mb-0 pl-3"><span class="text-primary">{{job.company[0]}}</span><span
+                    class="px-2">&bull;</span><span>{{job.location}}</span></p>
               </div>
             </div>
             <br>
@@ -31,10 +31,7 @@
             </span>
 
           </div>
-
-        </div>
-
-
+          </div>
       </ng-container>
 
       <nav aria-label="Page navigation">

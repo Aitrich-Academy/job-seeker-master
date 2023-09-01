@@ -11,7 +11,7 @@ export class JobService {
 
   constructor(private http:HttpClient) { }
 
-  getJobs(page: number, limit: number, query?: string){
+  getJobs<response>(page: number, limit: number, query?: string){
     let params = new HttpParams()
     .set('page', page.toString())
     .set('limit', limit.toString());

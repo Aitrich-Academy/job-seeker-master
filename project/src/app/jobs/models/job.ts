@@ -8,6 +8,7 @@ export class job{
     workplace:string | undefined;
     saved:boolean | undefined;
     applied:boolean | undefined;
+    company:company[]=[];
 }
 
 
@@ -16,5 +17,10 @@ export class response
     currentPage :number | undefined;
     data:job[]=[] ;
     totalItems:number | undefined;
-     totalPages: number | undefined;
+    totalPages: number | undefined;
 }
+export class company{
+    id:number | undefined;
+    name:string | undefined;
+}
+

@@ -10,26 +10,27 @@ import { job, response } from '../../models/job';
 export class AlljobsListComponent implements OnInit {
 
   jobs: any[] = [];
-resp:response =new response();
+  resp: response = new response();
   currentPage = 1;
-  totalPages = 1;
+  totalPages = 0;
   totalItems = 0;
-  itemsPerPage = 3;
+  itemsPerPage = 2;
   selectedJob: any;
   searchQuery: string = '';
   constructor(private jobService: JobService) { }
 
   ngOnInit() {
     this.getJobs();
-    }
+  }
 
-  getJobs(){
-    this.jobService.getJobs(this.currentPage, this.itemsPerPage,this.searchQuery
-      ).subscribe((res:any) => {
+  getJobs() {
+    this.jobService.getJobs(this.currentPage, this.itemsPerPage, this.searchQuery
+    ).subscribe((res: any) => {
       // this.jobs = jobs;
-      this.resp=res;
+      this.resp = res;
       console.log(JSON.stringify(this.resp));
-      console.log("data :" +this.resp.data[0].title);
+      this.totalPages=res.totalPages;
+      console.log("data :" + this.resp.data[0].title);
       this.selectedJob = this.jobs[0];
     })
   }
@@ -38,15 +39,11 @@ resp:response =new response();
     this.selectedJob = job;
   }
 
-  
+
   changePage(pageNumber: number) {
     if (pageNumber >= 1 && pageNumber <= this.totalPages) {
       this.currentPage = pageNumber;
       this.getJobs();
     }
   }
-
-
-
-
 }
