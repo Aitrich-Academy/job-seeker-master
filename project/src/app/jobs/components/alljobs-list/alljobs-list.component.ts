@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JobService } from '../../services/job.service';
-import { job } from '../../models/job';
+import { job, response } from '../../models/job';
 
 @Component({
   selector: 'app-alljobs-list',
@@ -10,11 +10,11 @@ import { job } from '../../models/job';
 export class AlljobsListComponent implements OnInit {
 
   jobs: any[] = [];
-
+resp:response =new response();
   currentPage = 1;
   totalPages = 1;
   totalItems = 0;
-  itemsPerPage = 5;
+  itemsPerPage = 3;
   selectedJob: any;
   searchQuery: string = '';
   constructor(private jobService: JobService) { }
@@ -25,10 +25,11 @@ export class AlljobsListComponent implements OnInit {
 
   getJobs(){
     this.jobService.getJobs(this.currentPage, this.itemsPerPage,this.searchQuery
-      ).subscribe((jobs) => {
+      ).subscribe((res:any) => {
       // this.jobs = jobs;
-      console.log(jobs);
-      console.log("haiiii" +job);
+      this.resp=res;
+      console.log(JSON.stringify(this.resp));
+      console.log("data :" +this.resp.data[0].title);
       this.selectedJob = this.jobs[0];
     })
   }
