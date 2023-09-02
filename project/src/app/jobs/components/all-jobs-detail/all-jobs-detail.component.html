@@ -1,5 +1,5 @@
 <div class="card">
-    <img src="../assets/images/Rectangle 11.png" class="card-img-top" alt="Top Image">
+    <!-- <img src="../assets/images/Rectangle 11.png" class="card-img-top" alt="Top Image"> -->
     <div class="position-relative text-center">
       <img src="../assets/images/Rectangle 14 (1).png" class="position-absolute rounded-circle" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px;" alt="Small Image">
       <span class="position-absolute" style="top: 50%; left: 5%; transform: translate(0, 20%);">12 Applicants</span>
@@ -7,8 +7,8 @@
     </div>
     <div class="card-body">
             <div class="div pt-5">
-        <h4 class="card-title">{{job?.jobTitle}}</h4>
-        <p class="card-text"><span class="text-primary">{{job?.companyName}}</span><span class="px-2">&bull;</span><span>{{job?.location}}</span></p>
+        <h4 class="card-title">{{job?.title}}</h4>
+        <p class="card-text"><span class="text-primary">{{job?.company[0]}}</span><span class="px-2">&bull;</span><span>{{job?.location}}</span></p>
         <p class="card-text"><small class="text-muted">{{job?.location}}</small></p>
       </div>
     </div> 
@@ -19,11 +19,11 @@
             <img src="../assets/images/g1.png" class="mt-2" height="45" width="45">
             <div class="ms-2">
               <a class="nav-link text-dark small mb-1 rounded" href="#">Type Of Employment<br>
-                  {{job?.typeOfEmployment}}</a>
+                  {{job?.type}}</a>
             </div>
           </div>
     </div>
-    <div class="col-md-6">
+    <!-- <div class="col-md-6">
         <div class="d-flex rounded px-2" id="dev">
             <img src="../assets/images/crown.png" class="mt-2" height="45" width="45">
             <div class="ms-2">
@@ -31,13 +31,13 @@
                 {{job?.experienceLevel}}</a>
             </div>
           </div>
-    </div>
+    </div> -->
     <div class=" col-md-6">
         <div class="d-flex rounded px-2" id="dev">
             <img src="../assets/images/Group 1 (1).png" class="mt-2" height="45" width="45">
             <div class="ms-2">
               <a class="nav-link text-dark small mb-1 rounded" href="#">Salary range<br>
-                {{job?.salaryRange}}</a>
+                {{job?.salary}}</a>
             </div>
           </div>
     </div>
@@ -55,7 +55,7 @@
             <img src="../assets/images/Group 1 (2).png" class="mt-2" height="45" width="45">
             <div class="ms-2">
               <a class="nav-link text-dark small mb-1 rounded" href="#">Onsite/Remote<br>
-                {{job?.onsiteOrRemote}}</a>
+                {{job?.workplace}}</a>
             </div>
           </div>
     </div>
@@ -99,7 +99,7 @@
 
   <div class="row py-4">
     <div class="center-div col-md-6">
-      <button type="button" class="btn btn-primary mx-3" style="width:80%;">Apply Job</button>
+      <button type="button" class="btn btn-primary mx-3" style="width:80%;" (click)="apply(job.id)">Apply Job</button>
     </div>
     <div class="center-div col-md-6">
     <button type="button" class="btn btn-secondary mx-3" style="width:80%;">Message</button>

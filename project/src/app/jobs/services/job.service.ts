@@ -30,5 +30,10 @@ export class JobService {
   getJobsById(id: string) {
     return this.http.get<any[]>(environment.baseurl +'/jobs/'+id)
   }
+  applyJob(id:number){
+
+    console.log(id);
+    return this.http.post<any[]>(environment.baseurl +`/jobseeker/jobs/${id}/application`,null);
+  }
 
 }

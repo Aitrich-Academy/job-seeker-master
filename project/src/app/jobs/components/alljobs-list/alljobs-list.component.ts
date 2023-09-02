@@ -31,7 +31,7 @@ export class AlljobsListComponent implements OnInit {
       console.log(JSON.stringify(this.resp));
       this.totalPages=res.totalPages;
       console.log("data :" + this.resp.data[0].title);
-      this.selectedJob = this.jobs[0];
+      // this.selectedJob = this.jobs[0];
     })
   }
 
