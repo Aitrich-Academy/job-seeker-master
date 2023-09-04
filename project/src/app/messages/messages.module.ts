@@ -5,6 +5,7 @@ import { MessagesRoutingModule } from './messages-routing.module';
 import { MessagesComponent } from './messages.component';
 import { SharedModule } from "../shared/shared.module";
 import { ChatMessageComponent } from './components/chat-message/chat-message.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ChatMessageComponent } from './components/chat-message/chat-message.com
     imports: [
         CommonModule,
         MessagesRoutingModule,
-        SharedModule
+        SharedModule,
+        ReactiveFormsModule 
     ]
 })
 export class MessagesModule { }
