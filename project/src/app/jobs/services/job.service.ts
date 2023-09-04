@@ -24,7 +24,7 @@ export class JobService {
   }
 
   getAppliedJobs() {
-    return this.http.get<any[]>(environment.baseurl +'/applications')
+    return this.http.get<any[]>(environment.baseurl +'/jobseeker/applications')
   }
 
   getJobsById(id: string) {

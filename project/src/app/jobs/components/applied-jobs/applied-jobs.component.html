@@ -13,22 +13,21 @@
             <div class="d-flex">
               <img src="../assets/images/Rectangle 14.png" alt="Card image" width="50" height="50">
               <div class="ms-4">
-                <h5 class="card-title mb-1 pl-3">{{appliedJob.job.jobTitle}}</h5>
-                <p class="card-text mb-0 pl-3"><span class="text-primary">{{appliedJob.job.companyName}}</span><span
-                    class="px-2">&bull;</span><span>{{appliedJob.job.location}}</span></p>
+                <h5 class="card-title mb-1 pl-3">{{appliedJob.job.title}}</h5>
+                <p class="card-text mb-0 pl-3"><span class="text-primary">&bull;{{appliedJob.company.name}}</span><span
+                    class="px-2"></span><span>&bull;{{appliedJob.job.location}}</span></p>
               </div>
             </div>
             <br>
-            <p class="card-text">We are looking for a UI/UX Designer to turn our software into easy-to-use
-              products for our clients</p>
+            <p class="card-text">{{appliedJob.description}}</p>
   
-            <span class="badge badge-pill text-light p-2 m-2" style="background-color: #CAC3AA;">{{appliedJob.job.typeOfEmployment}} </span>
-            <span class="badge badge-pill text-light p-2 m-2" style="background-color:  #CAC3AA;">{{appliedJob.job.experienceLevel
-            }} </span>
-            <span class="badge badge-pill text-light p-2 m-2" style="background-color:  #CAC3AA;">{{appliedJob.job.salaryRange
-            }} </span>
-            <span class="badge badge-pill text-light p-2 m-2" style="background-color:  #CAC3AA;">{{appliedJob.job.location}} </span>
-            <span class="badge badge-pill text-light p-2 m-2" style="background-color:  #CAC3AA;">{{appliedJob.job.onsiteOrRemote}} </span>
+            <!-- <span class="badge badge-pill text-light p-2 m-2" style="background-color: #CAC3AA;">{{appliedJob.job.type}} </span> -->
+            <!-- <span class="badge badge-pill text-light p-2 m-2" style="background-color:  #CAC3AA;">{{appliedJob.job.experienceLevel -->
+            <!-- }} </span> -->
+            <!-- <span class="badge badge-pill text-light p-2 m-2" style="background-color:  #CAC3AA;">{{appliedJob.salary
+            }} </span> -->
+            <!-- <span class="badge badge-pill text-light p-2 m-2" style="background-color:  #CAC3AA;">{{appliedJob.location}} </span> -->
+            <!-- <span class="badge badge-pill text-light p-2 m-2" style="background-color:  #CAC3AA;">{{appliedJob.job.workplace}} </span> -->
   
           </div>
   
