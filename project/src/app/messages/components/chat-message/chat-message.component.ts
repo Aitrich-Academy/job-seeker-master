@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { JobService } from 'src/app/jobs/services/job.service';
 import { ChatService } from '../../services/chat.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -9,21 +9,26 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ChatMessageComponent {
 
+  @ViewChild('messageInput')
+  messageInput!: ElementRef;
+  messageText: string = '';
+
  appliedJobList: any[] = [];
  companyName:String | undefined;
- companyId!: string;
+ chatId!: string;
  show:boolean=false;
- form: FormGroup ;
+ inputValue: string = '';
+ message:string | undefined;
+ messages:any[]=[];
+ email!: any;
   constructor(private jobService:JobService,private chat:ChatService,private fb: FormBuilder){
-    this.form = this.fb.group({
-      message: ['', Validators.required], // Name field with required validation
-     
-    });
+    
   }
   
   ngOnInit(){
     this.getAppliedCompanies();
-    
+    // this.getMessage();
+   this.email=sessionStorage.getItem('email');
   }
 
   getAppliedCompanies(){
@@ -36,16 +41,32 @@ export class ChatMessageComponent {
 
   chatMessage(id:string,name:string){
       this.companyName=name;
-      this.companyId=id;
+     
       this.show=true;
-      
-      this.chat.startChat(id).subscribe((result)=>{
-        console.log(result);
+      console.log("receipiant id"+id);
+      this.chat.startChat(id).subscribe((result:any)=>{
+        console.log(result.data.id);
+        this.chatId=result.data.id;
+        localStorage.setItem('id',this.chatId);
       })
+     
   }
-  sendMessage(message:string){
-    alert(message+this.companyId);
-    this.chat.sendMessage(message,this.companyId).subscribe((result)=>{
+  sendMessage(input:any,message:string){
+   
+    this.chat.sendMessage(message,this.chatId).subscribe((result:any)=>{
+      this.message=result.data.content;
+      
+    })
+   
+    this.messageInput.nativeElement.value = '';
+    this.getMessage();
+  }
+
+  getMessage(){
+   
+    this.chat.getMessage().subscribe((data:any)=>{
+      console.log(data.data);
+      this.messages=data.data;
 
     })
   }

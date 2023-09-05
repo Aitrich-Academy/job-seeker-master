@@ -9,20 +9,31 @@ export class ChatService {
 
   constructor(private http:HttpClient) { }
 
+  
+
   startChat(id:string){
     const requestData = {
       participants: [id]
     };
-    console.log(id);
+  
     var content:string="hello";
     return this.http.post<any[]>(environment.baseurl+`/chats/`,requestData);
   }
 
   sendMessage(message:string,chatId:string){
 
+ 
     const data={
       content:message
     };
     return this.http.post<any[]>(environment.baseurl+`/chats/${chatId}/messages`,data);
   }
+
+  getMessage(){
+  const chatId=localStorage.getItem('id');
+    return this.http.get<any[]>(environment.baseurl+`/chats/${chatId}/messages?page=1&limit=10`)
+  }
 }
+
+
+

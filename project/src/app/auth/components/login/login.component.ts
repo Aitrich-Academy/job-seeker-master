@@ -36,7 +36,8 @@ export class LoginComponent {
     // this.signInUser.password=loginForm.value.password;
     this.authService.signIn(loginForm.value).subscribe((response:any)=>{
     console.log(response,response['accessToken']);
-    localStorage.setItem('accessToken',response['accessToken'])
+    localStorage.setItem('accessToken',response['accessToken']);
+    sessionStorage.setItem('email',loginForm.value.email);
     this.router.navigate(['jobseeker-home/findAllJobs']);
 
     })
