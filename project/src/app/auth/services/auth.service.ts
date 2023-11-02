@@ -14,8 +14,8 @@ export class AuthService {
     return this.http.get<any[]>(environment.baseurl + '/users')
   }
 
-  signUp(user: any) {
-    return this.http.post(environment.baseurl + '/jobseeker/register', user)
+ signUp(user: any) {
+    return this.http.post(environment.baseurl + '/jp/api/v1/job-seeker/signup', user)
   }
 
   getUserById(id: string) {

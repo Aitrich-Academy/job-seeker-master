@@ -2,23 +2,29 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h2 class="my-4 text-center text-primary"><i class="fas fa-user-plus"></i> Sign Up</h2>
-            <form>
+            <form #regForm="ngForm" (ngSubmit)="signUp(regForm)">
+                
                 <div class="form-group">
                     <i class="fas fa-user"></i>
-                    <input type="text" class="form-control" id="username" placeholder="Username">
+                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="firstName" ngModel>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="lastName" ngModel>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" class="form-control" id="userName" name="userName" placeholder="userName" ngModel>
                 </div>
                 <div class="form-group">
                     <i class="fas fa-envelope"></i>
-                    <input type="email" class="form-control" id="email" placeholder="Email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="email" ngModel>
                 </div>
                 <div class="form-group">
                     <i class="fas fa-lock"></i>
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input type="text" class="form-control" id="phone"  name="phone" placeholder="phone" ngModel>
                 </div>
-                <div class="form-group">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
-                </div>
+                
                 <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-user-plus"></i> Sign Up</button>
             </form>
         </div>
