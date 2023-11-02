@@ -28,5 +28,11 @@ export class AuthService {
   getToken(): any {
     return localStorage.getItem('accessToken') // Return an empty string if the token is null or undefined
   }
-
+  setNewPassword(newPassword: string) {
+    const body = {
+      newPassword: newPassword
+    };
+    return this.http.post(environment.baseurl + '/set-password/', body);
+  }
+  
 }
