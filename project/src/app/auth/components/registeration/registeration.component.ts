@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterationComponent {
 
+    show:boolean=true;
   constructor(private authService: AuthService,private router:Router) { }
 
   signUp(signUpForm:NgForm){
@@ -17,7 +18,8 @@ export class RegisterationComponent {
     this.authService.signUp(signUpForm.value).subscribe(
       (response)=>{
         console.log(response);
-        this.router.navigate(['login'])}
+       }
     )
+    this.show =! this.show;
   }
 }
