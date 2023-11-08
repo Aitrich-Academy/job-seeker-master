@@ -7,7 +7,9 @@ const routes: Routes = [{
   path:'login',component:LoginComponent
 }
 ,
-{path:'signup',component:RegisterationComponent}];
+{path:'signup',component:RegisterationComponent}
+
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
