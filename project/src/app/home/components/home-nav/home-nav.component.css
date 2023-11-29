@@ -1,5 +1,5 @@
     
-        .img1{
+        /* .img1{
             position: absolute;
             float: right;
             right: 0;
@@ -41,10 +41,10 @@
                 width: 100%;
                 background: blue;
                
-            }
+            } */
 
             /* search section */
-            .custom-head{
+            /* .custom-head{
                 font-family: unset;
                 color: #242d62;
                 font-size: 45px;
@@ -78,7 +78,124 @@
                 height: 40px;
                 width:60px;
                 border: 0;
-              }
+              } */
               /* end */
+              body, h1, h2, p, ul {
+                margin: 0;
+                padding: 0;
+            }
+            
+            body {
+                font-family: Arial, sans-serif;
+                background-image: url('../../../../assets/images/background-img2.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                opacity: 0.9;
+            }
+            
+            header {
+                color: #fff;
+                padding: 15px 20px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 100%; /* Ensure the header spans the full width */
+                position: absolute;
+                top: 0;
+            }
+                        
+            .logo img {
+                width: 120px;
+            }
+            
+            .user-actions {
+                display: flex;
+                gap: 55px;
+                margin-left: 27%;
+            }
+            
+            .user-actions a {
+                text-decoration: none;
+                color: #ffffff;
+                font-weight: 580;
+                font-size:larger;
+                font-family: 'Your Preferred Font', sans-serif; /* Specify the font family */
+                text-shadow: 2px 2px 4px rgba(10, 5, 5, 3); /* Add a subtle text shadow */
+            }
+            
+            .hero {
+                text-align: center;
+                color:#b3c3de;
+                margin-top: 120px; /* Adjust the margin to leave space for the header */
+                font-family: 'Your Preferred Font', sans-serif; /* Specify the font family */
+                font-size: 24px; /* Set the font size */
+                font-weight: bold; /* Set the font weight */
+                line-height: 1.5; /* Set the line height for better readability */
+                text-shadow: 5px 5px 5px rgba(20, 10, 10, 3); /* Add a subtle text shadow */
+            }
+            
+            .hero-content h1 {
+                font-size: 45px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+            
+            .hero-content p {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+          
+            .form{
 
-              
+                position: relative;
+                opacity: 0.8;
+            }
+            
+            .form .fa-search{
+            
+                position: absolute;
+                top:20px;
+                left: 20px;
+                color: #0f3c8f;
+            
+            }
+            
+            .form span{
+            
+                position: absolute;
+                right: 17px;
+                top: 13px;
+                padding: 2px;
+                border-left: 1px solid #d1d5db;
+            
+            }
+            
+            .left-pan{
+                padding-left: 7px;
+            }
+            
+            .left-pan i{
+               
+               padding-left: 10px;
+            }
+            
+            .form-input{
+            
+                height: 55px;
+                text-indent: 33px;
+                border-radius: 10px;
+            }
+            
+            .form-input:focus{
+            
+                box-shadow: none;
+                border:none;
+            }
+            
